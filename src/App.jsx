@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import ItemCart from "./components/ItemCart";
 
 const allProductURL = "https://fakestoreapi.com/products";
 
@@ -15,18 +16,11 @@ function App() {
   return (
     <>
       <main>
-        <div>
-          <h2>PRODUCT LIST</h2>
-          <ul>
+        <div className="product-list">
+          <h2 className="text-center font-bold text-2xl pb-4">PRODUCT LIST</h2>
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
             {product?.map((item) => (
-              <li key={item.id}>
-                <figure>
-                  <img src={item.image} alt={item.description} />
-                </figure>
-                <h3>{item.title}</h3>
-                <h4>{item.category}</h4>
-                <p>{item.price}</p>
-              </li>
+              <ItemCart key={item.id} item={item} />
             ))}
           </ul>
         </div>
